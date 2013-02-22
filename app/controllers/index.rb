@@ -1,4 +1,12 @@
+
+# before do 
+#   @rounds = Round.all ||= []
+# end
+
+
 get '/' do
-  # Look in app/views/index.erb
+  @rounds = Round.all
+  @guesses = @rounds.guesses
+  
   erb :index
 end
