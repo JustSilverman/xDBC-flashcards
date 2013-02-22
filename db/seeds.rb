@@ -10,4 +10,4 @@ end
 
 Round.create(:deck_id => capitals.id)
 
-# Guess.new(:card_id => Card.find(3).id, :round_id => 1, :attempt => "franklin")
+Guess.new(:card_id => Card.find(3).id, :round_id => 1, :attempt => "franklin")
