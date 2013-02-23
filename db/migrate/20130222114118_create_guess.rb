@@ -1,3 +1,4 @@
+
 class CreateGuess < ActiveRecord::Migration
   def change
     create_table :guesses do |c|

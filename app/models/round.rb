@@ -18,8 +18,12 @@ class Round < ActiveRecord::Base
     unplayed_card_ids.count
   end
 
-  def percentage
-    
+  def accuracy_rate
+    if self.played_count > 0
+      self.guesses.find_all {|guess| guess.correct?}.count*100/self.played_count
+    else 
+      0
+    end 
   end
 
   def complete?

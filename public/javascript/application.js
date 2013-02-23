@@ -9,12 +9,19 @@ $(document).ready(function(){
       data: $(this).serialize(),
       dataType: "json",
       success: function(data, status) {
-        $('.question').html(data['card'].question);
-        $('.question-number').html('Question number '+count);
+        if (data['round'] == undefined){
+          $('.question').html(data['card'].question);
+          $('.question-number').html('Question number '+count);
+        }
+        else {
+          debugger
+          // $(location).("/rounds/" + data['round'].id);
+        }
       },
-      error: function() {      
+      error: function() { 
       },
       complete: function() {
+        // data['round'].complete == true
       }
 
     });
