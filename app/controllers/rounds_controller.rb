@@ -1,4 +1,3 @@
-
 get '/rounds/new' do
   @decks = Deck.all
   erb :show_decks

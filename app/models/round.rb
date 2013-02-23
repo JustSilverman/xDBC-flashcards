@@ -25,8 +25,9 @@ class Round < ActiveRecord::Base
   end
 
   def played_card_ids
-    Guess.select(:card_id).where(:round_id => self.id).
-                           where("attempt IS NOT NULL")
+    Card.select(:id).includes(:guesses).
+                     where(:guesses => { :round_id => self.id} ).
+                     where("attempt IS NOT NULL")
   end
 
   def unplayed_card_ids
