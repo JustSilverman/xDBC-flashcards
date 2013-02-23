@@ -1,14 +1,11 @@
-
-
 <div class="container">
   <p><%= session[:message] unless session[:message].nil? %></p>
   <p><% session[:message]=nil %></p>
-  <h1> Question number <%= @card.id %> </h1>
-  <p>What is the capital of <%= @card.question %>?</p>
-   <form action="/rounds/<%= @round.id %>/guesses" method="post">
+  <h1 class="question-number"> Question number 1</h1>
+  <p class="question"><%= @card.question %></p>
+   <form class="guess-form" action="/rounds/<%= @round.id %>/guesses" method="post">
     <input type="text" placeholder="Your answer here" name= "attempt"/>
     <input type="hidden" name="card_id" value="<%= @card.id %>"/>
-  
     <input type="submit" value="Play"/>
   </form>
 

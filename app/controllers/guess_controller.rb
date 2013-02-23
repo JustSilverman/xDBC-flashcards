@@ -7,7 +7,11 @@ post '/rounds/:round_id/guesses' do
   else
     session[:message] = "Sorry but your answer was wrong"
   end
+  @card  = Round.find(params[:round_id]).play_card
 
-  redirect "rounds/#{@guess.round_id}/play_card"
+  content_type :json
+  @card.to_json
+
+  # redirect "rounds/#{@guess.round_id}/play_card"
 end
 
