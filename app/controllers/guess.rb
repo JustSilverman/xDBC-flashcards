@@ -1,6 +1,7 @@
 
-put 'guesses' do
+put '/guesses' do
   @guess = Guess.new(params) ## pass card_id as hidden input
+  @guess.save
   @card = Card.find(@guess.card_id)
   if @guess.attempt.downcase == @card.answer.downcase
     @guess.update_attributes(:correct =>true)

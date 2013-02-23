@@ -1,19 +1,21 @@
-<style type="text/css">
-  .container {
-    margin: 20px auto;
-    width: 600px;
-    padding: 0px 20px 20px 20px;
-    border: 1px dotted black;
-  }
-  th {
-    text-align: left;
-  }
-</style>
+
 
 <div class="container">
-  <h1> Welcome to your flashcard game bonanza!<h1>
+  <h1> Welcome to your flashcard game bonanza!</h1>
     <% unless @rounds.nil? %> 
     <% @rounds.each do |round| %>
-    <p>Round <%= round.id %> playing <%= round.deck.name =></p>
+    <p>Round <%= round.id %> playing <%= round.deck.topic %> You have played <%= round.played_count %> cards and you have <%= round.unplayed_count %> cards left.
+    <form name="id" action="/rounds" method="post">
+      <input type="hidden" name="id" value="<%= round.deck_id %>"/>
+      <input type="submit" value="Replay"/>
+    </form>
+    <form name="continue" action="/rounds/<%= round.id %>" method="get"><input type="submit" value="Continue"/></form>
+    </p>
     <% end %>
+    <% end %>
+
+    <form name='start_game' action='/rounds/new' method='get'>
+    <input type="submit" value="Play new game"/>
+  </form>
 </div>
+

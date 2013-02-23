@@ -1,0 +1,16 @@
+<!-- 
+- this will show all the decks
+- a button to select which deck you want to play
+- submit button 
+-->
+
+
+<div class="container">
+  <h1> Please choose which topic you would like to play</h1>
+  <form name="decklist" action="/rounds" method="post">
+  <% @decks.each do |deck| %>
+  <input type="radio" name="id" value="<%= deck.id %>"> <%= deck.topic %><br>
+  <% end %>
+  <input type="submit" value="Start game"/>
+  </form>
+</div>

@@ -2,6 +2,8 @@
 require ::File.expand_path('../config/environment',  __FILE__)
 
 set :app_file, __FILE__
+set :method_override, true
+
 
 configure do
   # See: http://www.sinatrarb.com/faq.html#sessions
@@ -13,3 +15,4 @@ configure do
 end
 
 run Sinatra::Application
+
