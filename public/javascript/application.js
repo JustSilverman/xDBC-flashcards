@@ -1,6 +1,5 @@
-var count = 1;
-
 $(document).ready(function(){
+  var count = 1;
   $('.guess-form').submit(function(e){
     e.preventDefault();
     count++;

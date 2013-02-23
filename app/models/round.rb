@@ -18,6 +18,14 @@ class Round < ActiveRecord::Base
     unplayed_card_ids.count
   end
 
+  def percentage
+    
+  end
+
+  def complete?
+    self.complete
+  end
+
   private
   def played_card_ids
     Card.select(:id).includes(:guesses).
