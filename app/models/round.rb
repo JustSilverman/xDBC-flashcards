@@ -6,7 +6,7 @@ class Round < ActiveRecord::Base
   def play_card
     card = Card.find_by_id(unplayed_card_ids.sample)
     
-    complete! if played_count + 1 == self.deck.count
+    complete! if played_count == self.deck.count
     card
   end
 

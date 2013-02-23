@@ -5,7 +5,7 @@
   <p class="question"><%= @card.question %></p>
    <form class="guess-form" action="/rounds/<%= @round.id %>/guesses" method="post">
     <input type="text" placeholder="Your answer here" name= "attempt"/>
-    <input type="hidden" name="card_id" value="<%= @card.id %>"/>
+    <input type="hidden" class="card-id" name="card_id" value="<%= @card.id %>"/>
     <input type="submit" value="Play"/>
   </form>
 

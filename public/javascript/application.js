@@ -9,19 +9,20 @@ $(document).ready(function(){
       data: $(this).serialize(),
       dataType: "json",
       success: function(data, status) {
-        if (data['round'] == undefined){
-          $('.question').html(data['card'].question);
-          $('.question-number').html('Question number '+count);
+        if (data['round'].round.complete){
+          debugger
+          var url = "/rounds/" + data['round'].round.id
+          $(location).attr('href',url)
         }
         else {
-          debugger
-          // $(location).("/rounds/" + data['round'].id);
+          $('.question').html(data['card'].card.question);
+          $('.question-number').html('Question number '+ count);
+          $('.card-id').attr('value', data['card'].card.id);
         }
       },
       error: function() { 
       },
       complete: function() {
-        // data['round'].complete == true
       }
 
     });
