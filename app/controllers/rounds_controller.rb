@@ -20,6 +20,11 @@ end
 
 get '/rounds/:id/play_card' do
   @round = Round.find(params[:id])
+  puts ">>>>>>>>>>>>>>>>>"
   @card  = @round.play_card
-  erb :show_card
+  if @card.nil?
+    redirect '/'
+  else  
+    erb :show_card
+  end  
 end

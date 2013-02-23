@@ -4,12 +4,10 @@ class Round < ActiveRecord::Base
   has_many :guesses
 
   def play_card
-    get_cards(unplayed_card_ids).sample
+    card = Card.find_by_id(unplayed_card_ids.sample)
     
-    if played_count + 1 == self.deck.count
-      complete!
-      return nil
-    end 
+    complete! if played_count + 1 == self.deck.count
+    card
   end
 
   def played_count
@@ -21,10 +19,6 @@ class Round < ActiveRecord::Base
   end
 
   private
-  def get_cards(ids)
-    Card.where(:id => ids)
-  end
-
   def played_card_ids
     Card.select(:id).includes(:guesses).
                      where(:guesses => { :round_id => self.id} ).

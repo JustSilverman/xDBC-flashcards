@@ -3,10 +3,13 @@
 
 <div class="container">
   <h1> These are your Round <%= @round.id %> stats</h1>
-  <p>You have guessed <%= @round.played_count %> cards correctly!</p>
+  <p>You have guessed <%= @round.played_count %> cards !!</p>
   <p>You still have <%= @round.unplayed_count %> cards left</p>
-  
+  <p>You have a % rate of <%= @round.unplayed_count %> cards left</p>
+  <% unless @round.completed %>
   <form name="round_id" action="/rounds/<%= @round.id %>/play_card" method="get">
   <input type="submit" value="Play"/>
   </form>
+  <% end %>
+  <a href="/">&larr; Return to home</a>
 </div>
