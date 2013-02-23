@@ -5,6 +5,11 @@ class Round < ActiveRecord::Base
 
   def play_card
     get_cards(unplayed_card_ids).sample
+    
+    if played_count + 1 == self.deck.count
+      complete!
+      return nil
+    end 
   end
 
   def played_count
@@ -13,10 +18,6 @@ class Round < ActiveRecord::Base
 
   def unplayed_count
     unplayed_card_ids.count
-  end
-
-  def complete!
-    self.update_attributes(:complete => true)
   end
 
   private
@@ -33,5 +34,9 @@ class Round < ActiveRecord::Base
   def unplayed_card_ids
     deck_ids = Card.select(:id).where(:deck_id => self.deck.id)
     unplayed_ids = deck_ids - played_card_ids
+  end
+
+  def complete!
+    update_attributes(:complete => true)
   end
 end

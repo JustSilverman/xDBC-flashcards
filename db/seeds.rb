@@ -8,6 +8,18 @@ CSV.foreach(file, :headers => true) do |card_data|
                         :answer      => data[:capital])
 end
 
-Round.create(:deck_id => capitals.id)
+file = 'public/card_data/trivial_pursuit_history.csv'
+trivial_pursuit = Deck.create(:topic => "U.S. History")
+CSV.foreach(file, :headers => true) do |card_data|
+  data = Hash[card_data.to_a.map {|k, v| [k.to_sym, v]}]
+  trivial_pursuit.cards.create(:question    => data[:question],
+                               :answer      => data[:answer])
+end
 
-Guess.new(:card_id => Card.find(3).id, :round_id => 1, :attempt => "franklin")
+file = 'public/card_data/jeopardy.csv'
+jeopardy = Deck.create(:topic => "Jeopardy")
+CSV.foreach(file, :headers => true) do |card_data|
+  data = Hash[card_data.to_a.map {|k, v| [k.to_sym, v]}]
+  jeopardy.cards.create(:question    => data[:question],
+                        :answer      => data[:answer])
+end

@@ -1,4 +1,3 @@
-
 post '/rounds/:round_id/guesses' do
   clean_params(params)
   @guess = Guess.create(params) ## pass card_id as hidden input

@@ -14,4 +14,8 @@ helpers do
   def logout
     session.delete(:user_id)
   end
+
+  def session_message
+    session[:message]
+  end
 end
