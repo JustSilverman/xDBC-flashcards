@@ -1,15 +1,10 @@
+<h1><%= @round.deck.topic %> Stats</h1>
+<p>You have guessed <%= @round.played_count %> out of <%= @round.deck.count %> cards.</p>
+<p>You still have <%= @round.unplayed_count %> cards left.</p>
+<p>You have a <%= @round.accuracy_rate %>% success rate</p>
 
-
-
-<div class="container">
-  <h1>Round <%= @round.id %> Stats</h1>
-  <p>You have guessed <%= @round.played_count %> out of <%= @round.deck.count %> cards.</p>
-  <p>You still have <%= @round.unplayed_count %> cards left.</p>
-  <p>You have a <%= @round.accuracy_rate %>% success rate</p>
-  <% unless @round.complete? %>
+<% unless @round.complete? %>
   <form name="round_id" action="/rounds/<%= @round.id %>/play_card" method="get">
-  <input type="submit" value="Play"/>
+    <div class='button'><input class="button inline-button" type='submit' value='Start Playing'/></div>
   </form>
-  <% end %>
-  <a href="/">&larr; Return to home</a>
-</div>
+<% end %>

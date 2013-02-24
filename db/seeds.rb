@@ -1,10 +1,10 @@
 require 'csv'
 
 file = 'public/card_data/state_data.csv'
-capitals = Deck.create(:topic => "Country Capitals")
+capitals = Deck.create(:topic => "State Capitals")
 CSV.foreach(file, :headers => true) do |card_data|
   data = Hash[card_data.to_a.map {|k, v| [k.to_sym, v]}]
-  state    = data[:name].split(" ").last.capitalize
+  state    = data[:name].split(" ").map(&:capitalize).join(" ")
   question = "What is the capital of #{state}"
   capitals.cards.create(:question    => question,
                         :answer      => data[:capital])

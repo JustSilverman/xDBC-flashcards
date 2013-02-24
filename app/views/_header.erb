@@ -1,0 +1,8 @@
+<div class="header">
+  <% root_url = current_user ? "/rounds" : "/" %>
+  <a href="<%= root_url %>"><h1 class="header-title">Flashcard Game Bonanza</h1></a>
+  <% if current_user %>
+    <%= erb :_logout_button %>
+    <%= erb :_profile_button %>
+  <% end %>
+</div>

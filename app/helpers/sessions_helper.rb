@@ -1,4 +1,7 @@
 helpers do
+  WRONG_RESPONSES = ["No way Jose", "Nope", "Come on buddy", "No", "Close, but no cigar", "Esa respuesta es una mierda", "chigau yo aho"]
+  CORRECT_RESPONSES = ["Winner winner chicken dinner", "Yes!", "Correct!", "Show off", "Si senior", "Bien hecho tio", "dai atari!!"]
+  
   def login(id)
     session[:user_id] = id
   end
@@ -17,5 +20,13 @@ helpers do
 
   def session_message
     session[:message]
+  end
+
+  def wrong_answer
+    session[:message] = WRONG_RESPONSES.sample
+  end
+
+  def correct_answer
+    session[:message] = CORRECT_RESPONSES.sample    
   end
 end

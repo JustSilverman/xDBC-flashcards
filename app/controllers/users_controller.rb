@@ -1,26 +1,28 @@
-get '/users/new' do 
+get '/' do
+  erb :login
 end
 
 post '/users' do 
   @user = User.new(params)
   if @user.save
-    redirect '/'
+    login(@user.id)
+    redirect '/rounds'
   else
-    erb :index
+    erb :login
   end
 end
 
 post '/login' do 
   @user = User.find_by_email(params[:email])
   if @user
-    if @user.authenticate
+    if @user.authenticate(params[:password])
       login(@user.id)
-      redirect '/'
+      redirect '/rounds'
     end
   end
 
-  session[:message] = "Invalid email or password"
-  erb :index
+  @message = "Invalid credentials"
+  erb :login
 end
 
 delete '/logout' do 

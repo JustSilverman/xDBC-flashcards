@@ -1,0 +1,12 @@
+<div id="error-explanation">
+  <strong>Looks like there are a few errors:</strong>
+  <% if login_error %>
+      <ul><li> <%= login_error %></li></ul>
+  <% else %>
+      <ul class="validation-errors">
+        <% object.errors.full_messages.each do |msg| %>
+          <li> <%= msg %></li>
+        <% end %>
+      </ul>
+  <% end %>
+</div>

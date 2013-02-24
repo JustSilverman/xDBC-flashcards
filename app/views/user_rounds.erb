@@ -1,0 +1,25 @@
+<h1>Welcome!</h1>
+  <% unless @rounds.nil? %> 
+    <% @rounds.each do |round| %>
+      <div class="round">
+        <h3 class="topic-title"><%= round.deck.topic %></h3>
+        <span>You have played <%= round.played_count %> cards and you have <%= round.unplayed_count %> cards left.</span>
+        <% button_value = round.complete? ? "Show Stats" : "Continue" %>
+        
+        <form name="stats" action="/rounds/<%= round.id %>" method="get">
+          <input class="button inline-button"  type="submit" value="<%= button_value %>"/>
+        </form>
+
+        <form name="id" action="/rounds" method="post">
+          <input type="hidden" name="id" value="<%= round.deck_id %>"/>
+          <input class="button inline-button" type="submit" value="Restart Deck"/>
+        </form>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="new-deck">
+    <form name='start_game' action='/rounds/new' method='get'>
+      <input class="button new-deck" type="submit" value="Play New Deck"/>
+    </form>
+  </div>

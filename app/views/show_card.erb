@@ -1,13 +1,15 @@
 <div class="container">
-  <p><%= session[:message] unless session[:message].nil? %></p>
-  <p><% session[:message]=nil %></p>
-  <h1 class="question-number"> Question number 1</h1>
-  <p class="question"><%= @card.question %></p>
-   <form class="guess-form" action="/rounds/<%= @round.id %>/guesses" method="post">
-    <input type="text" placeholder="Your answer here" name= "attempt"/>
-    <input type="hidden" class="card-id" name="card_id" value="<%= @card.id %>"/>
-    <input type="submit" value="Play"/>
-  </form>
-
-  <a href="/">&larr; Return to home</a>
+  <h1 class="question"><%= @card.question %></h1>
+  <p class="session-message"><%= session_message unless session_message.nil? %></p>
+  <div class='card-form'> 
+    <form class="guess-form" action="/rounds/<%= @round.id %>/guesses" method="post">
+      <div class='field'>
+        <input class="field answer-field" type="text" placeholder="Your answer here" name= "attempt"/>
+      </div>
+        <input type="hidden" class="card-id" name="card_id" value="<%= @card.id %>"/>
+      <div class='button next-card-button'>
+        <input class="button inline-button" type="submit" value="Submit"/>
+      </div>
+    </form>
+  </div>
 </div>

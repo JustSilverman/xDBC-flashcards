@@ -1,13 +1,156 @@
+body {
+  background-image: url('../images/light_wool/light_wool.png');
+}
 
+.header {
+  height: 5em;
+  background-color: #000;
+}
+
+.header a {
+  display: inline;
+  float: left;
+  text-decoration: none;
+}
+
+.header-title {
+  margin: 0 0 1em 1em;
+  color: #fff;  
+  line-height: 2.5em;
+}
+
+.header-title {
+  margin-left: 1em; 
+  color: #fff;  
+  line-height: 2.5em;
+}
+
+div.header-button {
+  display: inline;
+  float: right;
+}
+
+input.header-button {
+  color: #fff; 
+  background: transparent;
+  border: none;
+  line-height: 4.5em;
+  margin-right: 1em;
+}
 
 .container {
-    margin: 20px auto;
-    width: 600px;
-    padding: 0px 20px 20px 20px;
-    border: 1px dotted black;
-  }
-  
-th {
-    text-align: left;
-  }
+  clear: both;
+  margin: 20px auto;
+  width: 600px;
+  min-height: 500px;
+  padding: 0px 20px 20px 20px;
+}
 
+.form {
+  margin-top: 3em;
+}
+
+.field { 
+  margin-top: 0.5em;
+}
+
+.button {
+  margin: 0.25em;
+  width: 9em;
+  background: #B3B3B3;
+  border: none;
+  border-radius: 25px;
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+}
+
+.button:hover {
+  color: #fff;
+  background: #737373;
+}
+
+.inline-button {
+  float: left;
+  display: block;
+  border: 1px solid #555
+}
+
+.home-button {
+  margin-left: 0;
+  border: 1px solid #555
+}
+
+.button.new-deck {
+  display: block;
+  clear: both;
+  width: 18.5em;
+  color: #fff;
+  background: #445ED4;
+  border: 1px solid #555
+}
+
+div.new-deck {
+  margin-top: 3em;
+}
+
+.button.new-deck:hover {
+  color: black;
+  background: #A2B2FA;
+}
+
+.signup-dropdown {
+  width: 9em;
+  height: 1.5em;
+  text-align: center;
+  line-height: 1.5em;
+  border: 1px solid #555;
+  margin-left: 0;
+  cursor: pointer;  
+}
+
+.signup-form {
+  display: none;
+}
+  
+.session-message {
+  font-size: 1.5em;
+  color: #C9170E;
+  font-style: italic;
+}
+
+.session-message.correct {
+  color: #0C8514;
+}
+
+input.radio {
+  margin: 0.5em 0;
+}
+
+.round {
+  clear: both;
+}
+
+h3.topic-title {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.footer {
+  margin: 20px auto;
+  width: 960px;
+  margin-top: 2em;
+  border-top: 1px solid #222;
+}
+
+.footer-text {
+  font-size: 0.6em;
+  color: #333;
+}
+
+.footer-text.names{
+  float: right;
+}
+
+#error-explanation {
+  color: #f00;
+}
